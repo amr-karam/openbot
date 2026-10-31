@@ -50,7 +50,8 @@ def configure_logging(settings) -> None:
     root.addHandler(console)
 
     file_handler = _file_handler(Path(settings.log_file))
-    root.addHandler(file_handler)
+    if file_handler is not None:
+        root.addHandler(file_handler)
     _mirror(logging.getLogger(MIRRORED_LOGGER), file_handler)
     # uvicorn's default config gives uvicorn.access its own handler with propagate=False, so records
     # never reach the parent; attach directly in that case only (attaching when it does propagate,
@@ -67,9 +68,18 @@ def _mirror(logger: logging.Logger, handler: _OpenBotFileHandler | None) -> None
         logger.addHandler(handler)
 
 
-def _file_handler(path: Path) -> _OpenBotFileHandler:
-    path.parent.mkdir(parents=True, exist_ok=True)
-    handler = _OpenBotFileHandler(path, maxBytes=MAX_BYTES, backupCount=BACKUP_COUNT, encoding="utf-8")
-    handler.setLevel(logging.DEBUG)
-    handler.setFormatter(logging.Formatter(FILE_FORMAT))
-    return handler
+def _file_handler(path: Path) -> _OpenBotFileHandler | None:
+    """Create the rotating file handler, or return None if the log file cannot
+    be opened (e.g. Windows Defender Controlled Folder Access blocks writes under
+    the user profile). Callers fall back to console-only logging."""
+    try:
+        path.parent.mkdir(parents=True, exist_ok=True)
+    except OSError:
+        return None
+    try:
+        handler = _OpenBotFileHandler(path, maxBytes=MAX_BYTES, backupCount=BACKUP_COUNT, encoding="utf-8")
+        handler.setLevel(logging.DEBUG)
+        handler.setFormatter(logging.Formatter(FILE_FORMAT))
+        return handler
+    except OSError:
+        return None

@@ -99,7 +99,11 @@ async def build_services(settings: Settings) -> Services:
     services.actors = ActorSystem(services, settings.max_concurrent_runs)
     services.scheduler = Scheduler(services)
     services._owned_resources = [engine, stack, services.http_client]
-    Path(settings.workspace_root).mkdir(parents=True, exist_ok=True)
+    try:
+        Path(settings.workspace_root).mkdir(parents=True, exist_ok=True)
+    except OSError:
+        log.warning("workspace_root %s could not be created (write blocked by Defender Controlled Folder Access); bots may not run",
+                    settings.workspace_root)
     _log_startup(settings, services)
     return services
 
