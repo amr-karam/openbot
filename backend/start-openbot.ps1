@@ -22,5 +22,5 @@ New-Item -ItemType Directory -Path "C:\openbot-data\workspace" -Force | Out-Null
 Set-Location $backendDir
 Write-Host "OpenBot backend dir: $backendDir" -ForegroundColor Cyan
 Write-Host "State root: C:\openbot-data (CFA-safe)" -ForegroundColor Cyan
-Write-Host "Starting uvicorn on http://localhost:8000 ..." -ForegroundColor Cyan
-& $python -m uvicorn openbot.main:app --reload --port 8000
+Write-Host "Starting uvicorn on http://0.0.0.0:8000 (Tailscale: 100.79.173.15:8000) ..." -ForegroundColor Cyan
+& $python -m uvicorn openbot.main:app --reload --host 0.0.0.0 --port 8000
