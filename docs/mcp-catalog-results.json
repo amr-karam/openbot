@@ -2340,10 +2340,10 @@
         "exit_code": 0,
         "process_group_gone": true
       },
-      "evidence_sha256": "c2b566f2f06f44fd3610b02dde27fcb8216c2d1203f6fe97dcad5132d2e7b42f",
+      "evidence_sha256": "1684462f697249020349b11a7397c0a8f0c723a4a79f8d18d1653c58ab832673",
       "portable_evidence": {
         "path": "mcp-catalog-evidence/sqlite.json",
-        "sha256": "c2b566f2f06f44fd3610b02dde27fcb8216c2d1203f6fe97dcad5132d2e7b42f"
+        "sha256": "1684462f697249020349b11a7397c0a8f0c723a4a79f8d18d1653c58ab832673"
       },
       "configuration_fix": "MCP 2.2.0 fails Server.list_resources; --with mcp<2 tested using uv tool run with offline wheelhouse and SDK 1.30.0. Archived status retained.",
       "functional_limit": "initialize and tools/list only; no tools/call, public service, browser launch or account validation",
@@ -2846,10 +2846,10 @@
         "exit_code": 0,
         "process_group_gone": true
       },
-      "evidence_sha256": "19c7130b820444b824a93c7b233bff4681e20a0571089d366b346e5719e3cd72",
+      "evidence_sha256": "e67f0ca7a07c5930bc708f536027703f92476d34fcc2c4988d3b18c6fd55eaa4",
       "portable_evidence": {
         "path": "mcp-catalog-evidence/puppeteer.json",
-        "sha256": "19c7130b820444b824a93c7b233bff4681e20a0571089d366b346e5719e3cd72"
+        "sha256": "e67f0ca7a07c5930bc708f536027703f92476d34fcc2c4988d3b18c6fd55eaa4"
       },
       "functional_limit": "initialize and tools/list only; no tools/call, public service, browser launch or account validation",
       "npm_lock_sha256": "222ea68c08bbb615399a34a67aad1a88451145016448425f14e98b9f6615fb61",
@@ -3336,10 +3336,10 @@
         "exit_code": 0,
         "process_group_gone": true
       },
-      "evidence_sha256": "ac63ac7018802e8a62d020b6c7abd3442b28dd4c6b2565cedd0b0575dbce482f",
+      "evidence_sha256": "243bba777ccfdb3acda41c9e4c2e931d4041f83ad9e8af13d3c5ddec56333a6e",
       "portable_evidence": {
         "path": "mcp-catalog-evidence/serena.json",
-        "sha256": "ac63ac7018802e8a62d020b6c7abd3442b28dd4c6b2565cedd0b0575dbce482f"
+        "sha256": "243bba777ccfdb3acda41c9e4c2e931d4041f83ad9e8af13d3c5ddec56333a6e"
       },
       "staging_note": "proxy_tools 0.1.0 source downloaded as inert data, hash checked, wheel built only inside sandbox; no source build on host.",
       "functional_limit": "initialize and tools/list only; no tools/call, public service, browser launch or account validation",
@@ -4111,10 +4111,10 @@
         "exit_code": 0,
         "process_group_gone": true
       },
-      "evidence_sha256": "408a1c115d591e592541f004a331c5068e7d62fe4e8ee8259597e8d04015b1d1",
+      "evidence_sha256": "c809b9e1bafb9bf78efb2362bc006d7c56ea63428b276ad5dfa6dee8dd2afd35",
       "portable_evidence": {
         "path": "mcp-catalog-evidence/context7.json",
-        "sha256": "408a1c115d591e592541f004a331c5068e7d62fe4e8ee8259597e8d04015b1d1"
+        "sha256": "c809b9e1bafb9bf78efb2362bc006d7c56ea63428b276ad5dfa6dee8dd2afd35"
       },
       "functional_limit": "initialize and tools/list only; no tools/call, public service, browser launch or account validation",
       "npm_lock_sha256": "ee2e1ce00630df24eed61e944edfa4df47c833087b4f59b8ad5466ede32fa86a",
@@ -4517,10 +4517,10 @@
         "exit_code": 0,
         "process_group_gone": true
       },
-      "evidence_sha256": "587dfa2a33a3dabd765489b223381726856cd865669ffbc1330e5b0a98334d9b",
+      "evidence_sha256": "066a1b797218a759cb0a56a88b5fd7c9c50ac4a09c2e7c4f0a1ebb79ddc3f77d",
       "portable_evidence": {
         "path": "mcp-catalog-evidence/delimit.json",
-        "sha256": "587dfa2a33a3dabd765489b223381726856cd865669ffbc1330e5b0a98334d9b"
+        "sha256": "066a1b797218a759cb0a56a88b5fd7c9c50ac4a09c2e7c4f0a1ebb79ddc3f77d"
       },
       "staging_note": "Launcher provisions its bundled Python server offline from staged wheels; no fake dependency marker or server stub.",
       "functional_limit": "initialize and tools/list only; no tools/call, public service, browser launch or account validation",
@@ -4994,10 +4994,10 @@
         "exit_code": 0,
         "process_group_gone": true
       },
-      "evidence_sha256": "521a3edf211701d1976934f8f5673838bee845e23de5e0fb043e8a9002004fdc",
+      "evidence_sha256": "2873c3e7b2b72d1443e74ecc5e90009c2ee1dd5f47186e2e5b06e72d75867c32",
       "portable_evidence": {
         "path": "mcp-catalog-evidence/playwright.json",
-        "sha256": "521a3edf211701d1976934f8f5673838bee845e23de5e0fb043e8a9002004fdc"
+        "sha256": "2873c3e7b2b72d1443e74ecc5e90009c2ee1dd5f47186e2e5b06e72d75867c32"
       },
       "functional_limit": "initialize and tools/list only; no tools/call, public service, browser launch or account validation",
       "npm_lock_sha256": "7ae01712accdd7a7800c97d2504a71be178382d2951fa90b96759ecdfe76eec1",
@@ -5592,10 +5592,10 @@
         "exit_code": 0,
         "process_group_gone": true
       },
-      "evidence_sha256": "5cbed8f8286b29c87ad4a1cbad26aa50a14bcbcb3ec508d419c8e4238b86453d",
+      "evidence_sha256": "6134c4ceaf3d01b62034a8738747b2d419e9a3474ca2898d66c93081161b5866",
       "portable_evidence": {
         "path": "mcp-catalog-evidence/aws.json",
-        "sha256": "5cbed8f8286b29c87ad4a1cbad26aa50a14bcbcb3ec508d419c8e4238b86453d"
+        "sha256": "6134c4ceaf3d01b62034a8738747b2d419e9a3474ca2898d66c93081161b5866"
       },
       "functional_limit": "initialize and tools/list only; no tools/call, public service, browser launch or account validation",
       "installed_python_distributions": [
