@@ -160,10 +160,10 @@
         "exit_code": 0,
         "process_group_gone": true
       },
-      "evidence_sha256": "355e5c4957cb802c903e74dda12272c4ef5c725002bf853da78b8b6b36b431e1",
+      "evidence_sha256": "2942fbb6de8e7cfd20246c4d364f3f1a98b89c151ae891548da54fe03ade0695",
       "portable_evidence": {
         "path": "mcp-catalog-evidence/filesystem.json",
-        "sha256": "355e5c4957cb802c903e74dda12272c4ef5c725002bf853da78b8b6b36b431e1"
+        "sha256": "2942fbb6de8e7cfd20246c4d364f3f1a98b89c151ae891548da54fe03ade0695"
       },
       "functional_limit": "initialize and tools/list only; no tools/call, public service, browser launch or account validation",
       "npm_lock_sha256": "e04e2fa05d1c40881a83b7b76ddad82a1e4a800848a88902ff0ef2a2497d52f5",
@@ -347,10 +347,10 @@
         "exit_code": 0,
         "process_group_gone": true
       },
-      "evidence_sha256": "848faab06e522a8c38fc62d77783d3ca5b36fce3fd64cbfea0b1d4e0d00f41aa",
+      "evidence_sha256": "1889fb653ab2caf19c7f59cbdd959b4d31725f4adbb70a7752793e07db90e48a",
       "portable_evidence": {
         "path": "mcp-catalog-evidence/git.json",
-        "sha256": "848faab06e522a8c38fc62d77783d3ca5b36fce3fd64cbfea0b1d4e0d00f41aa"
+        "sha256": "1889fb653ab2caf19c7f59cbdd959b4d31725f4adbb70a7752793e07db90e48a"
       },
       "functional_limit": "initialize and tools/list only; no tools/call, public service, browser launch or account validation",
       "installed_python_distributions": [
@@ -797,10 +797,10 @@
         "exit_code": 0,
         "process_group_gone": true
       },
-      "evidence_sha256": "8979ccfec4f01f73108dd51c2295646e97249d0f866449667c84cc3d8938e923",
+      "evidence_sha256": "e9660bbdb524709eb80aef84b3213dd237dbc955f97858ba7093e50e2daaf877",
       "portable_evidence": {
         "path": "mcp-catalog-evidence/memory.json",
-        "sha256": "8979ccfec4f01f73108dd51c2295646e97249d0f866449667c84cc3d8938e923"
+        "sha256": "e9660bbdb524709eb80aef84b3213dd237dbc955f97858ba7093e50e2daaf877"
       },
       "functional_limit": "initialize and tools/list only; no tools/call, public service, browser launch or account validation",
       "npm_lock_sha256": "f3531c0a3e120404723de146b022d7fcc7086b3cf1a9978d0ade0dabe9c91c73",
@@ -971,10 +971,10 @@
         "exit_code": 0,
         "process_group_gone": true
       },
-      "evidence_sha256": "184d9ef39179629f7cb3912673b5ce38832395ea12b05f9c3b1fabe6bcbd8efd",
+      "evidence_sha256": "49b04620c8bfa3a5e8596951afb519e7def0344e78819d3d090c2227b2fe5930",
       "portable_evidence": {
         "path": "mcp-catalog-evidence/sequential-thinking.json",
-        "sha256": "184d9ef39179629f7cb3912673b5ce38832395ea12b05f9c3b1fabe6bcbd8efd"
+        "sha256": "49b04620c8bfa3a5e8596951afb519e7def0344e78819d3d090c2227b2fe5930"
       },
       "functional_limit": "initialize and tools/list only; no tools/call, public service, browser launch or account validation",
       "npm_lock_sha256": "6aff460230721bf4d87a66c18aebd725a481fa17f245dec8f3424b66f6709d56",
@@ -1147,10 +1147,10 @@
         "exit_code": 0,
         "process_group_gone": true
       },
-      "evidence_sha256": "b8e7c5454bd451fefccbdd863084228fc146b9bc4fb5ebc67904f2de75023d36",
+      "evidence_sha256": "ef3eaf8e60d2c4ca5f53a1e0f51024753210c774ceaff1bcf9337662e44334fc",
       "portable_evidence": {
         "path": "mcp-catalog-evidence/time.json",
-        "sha256": "b8e7c5454bd451fefccbdd863084228fc146b9bc4fb5ebc67904f2de75023d36"
+        "sha256": "ef3eaf8e60d2c4ca5f53a1e0f51024753210c774ceaff1bcf9337662e44334fc"
       },
       "functional_limit": "initialize and tools/list only; no tools/call, public service, browser launch or account validation",
       "installed_python_distributions": [
@@ -1581,10 +1581,10 @@
         "exit_code": 0,
         "process_group_gone": true
       },
-      "evidence_sha256": "c6806014c31c8e79f7e53ae17c9bbe07e45181fa2841801d0d381dfcb09c297e",
+      "evidence_sha256": "222b528ebfab17c4f66a74d92e878baf6afaef41f423e5b40929067c2bde7838",
       "portable_evidence": {
         "path": "mcp-catalog-evidence/fetch.json",
-        "sha256": "c6806014c31c8e79f7e53ae17c9bbe07e45181fa2841801d0d381dfcb09c297e"
+        "sha256": "222b528ebfab17c4f66a74d92e878baf6afaef41f423e5b40929067c2bde7838"
       },
       "functional_limit": "initialize and tools/list only; no tools/call, public service, browser launch or account validation",
       "installed_python_distributions": [

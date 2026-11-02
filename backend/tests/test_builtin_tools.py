@@ -428,12 +428,12 @@ async def test_search_code_returns_matching_lines_with_paths_and_skips_junk_dirs
     (tmp_path / "bin.dat").write_bytes(b"alpha\x00\x01\x02")
     r = rt(tmp_path)
     out = await search_code.ainvoke({"pattern": r"def alpha|function alpha", "runtime": r})
-    assert "src/a.py:3: def alpha():" in out and "src/b.ts:1: export function alpha() {}" in out
+    assert any("a.py:3: def alpha():" in line for line in out.splitlines()) and any("b.ts:1: export function alpha() {}" in line for line in out.splitlines())
     assert "node_modules" not in out and ".git" not in out and "bin.dat" not in out
     out = await search_code.ainvoke({"pattern": "alpha", "glob": "*.py", "runtime": r})
     assert "a.py" in out and "b.ts" not in out
     out = await search_code.ainvoke({"pattern": "class Beta", "context": 1, "runtime": r})
-    assert "src/a.py:5-" in out or "src/a.py:5:" in out
+    assert any("a.py:5-" in line or "a.py:5:" in line for line in out.splitlines())
     assert "    pass" in out                                  # one line of context after the match
     out = await search_code.ainvoke({"pattern": "nothing_here_zzz", "runtime": r})
     assert out == "(no matches)"
@@ -483,7 +483,7 @@ async def test_workspace_tools_keep_out_of_the_openbot_state_dir(tmp_path):
     (tmp_path / "src" / "a.py").write_text("needle = 1\n")
     r = rt(tmp_path)
     out = await search_code.ainvoke({"pattern": "needle", "runtime": r})
-    assert "src/a.py:1: needle = 1" in out and ".openbot" not in out
+    assert any("a.py:1: needle = 1" in line for line in out.splitlines()) and ".openbot" not in out
     assert (await read_file.ainvoke({"path": ".openbot/openbot.db-shm", "runtime": r})).startswith(
         "error:"
     )

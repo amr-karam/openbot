@@ -8,13 +8,20 @@ Covers:
 """
 from __future__ import annotations
 
+import shutil
 from pathlib import Path
 from unittest.mock import patch as mock_patch
+
+import pytest
 
 from langchain.tools import ToolRuntime
 
 from openbot.tools.builtin.files import _apply_patch_command, patch_file
 from openbot.tools.context import RunContext
+
+# system ``patch`` binary is not guaranteed on Windows; skip the real-patch tests when absent
+PATCH_BINARY = shutil.which("patch")
+requires_patch = pytest.mark.skipif(PATCH_BINARY is None, reason="system `patch` binary not installed")
 
 # ── Helpers ─────────────────────────────────────────────────────────────────
 
@@ -46,6 +53,7 @@ SIMPLE_DIFF = """\
 # ── Tests for unified-diff (diff_input) mode ────────────────────────────────
 
 
+@requires_patch
 async def test_patch_file_diff_input_applies_unified_diff(tmp_path):
     """Passing a valid unified diff via *diff_input* modifies the file."""
     target = _write_hello(tmp_path)
@@ -59,6 +67,7 @@ async def test_patch_file_diff_input_applies_unified_diff(tmp_path):
     assert target.read_text() == "Hello\nUniverse\nGoodbye\n"
 
 
+@requires_patch
 async def test_patch_file_diff_input_dry_run_does_not_modify(tmp_path):
     """With *dry_run=True* the file must remain unchanged."""
     target = _write_hello(tmp_path)
@@ -74,6 +83,7 @@ async def test_patch_file_diff_input_dry_run_does_not_modify(tmp_path):
     assert target.read_bytes() == before
 
 
+@requires_patch
 async def test_patch_file_diff_input_backup_creates_orig(tmp_path):
     """With *backup=True* an .orig file must be left behind."""
     _write_hello(tmp_path)
@@ -88,6 +98,7 @@ async def test_patch_file_diff_input_backup_creates_orig(tmp_path):
     assert (tmp_path / "hello.txt.orig").exists()
 
 
+@requires_patch
 async def test_patch_file_diff_input_strip_level(tmp_path):
     """Verify that strip level is forwarded to patch -p."""
     target = _write_hello(tmp_path)
