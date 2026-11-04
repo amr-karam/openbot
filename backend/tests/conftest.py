@@ -3,6 +3,7 @@ from pathlib import Path
 
 import pytest
 import pytest_asyncio
+import asgi_lifespan
 from asgi_lifespan import LifespanManager
 from httpx import ASGITransport, AsyncClient
 from langgraph.checkpoint.memory import InMemorySaver
@@ -24,6 +25,25 @@ from openbot.seed import ensure_cron_actor, ensure_human_actor
 from openbot.services import Services
 from openbot.tools.registry import build_registry
 from tests.fakes import ScriptedChatModel
+
+# `pytest-xdist` (`pytest -n auto`) runs the suite across N workers, and each one imports the same
+# framework stack `openbot.main` pulls in at module scope. Startup then competes with N-1 workers
+# doing the identical ~20s import, so `asgi_lifespan.LifespanManager`'s 5s default startup timeout
+# trips and fails tests that pass (quickly) when run alone. 26 call sites lean on that default, so
+# the timeout is widened once here instead of at each of them: every
+# `from asgi_lifespan import LifespanManager` binding names this same class object, so patching
+# `__init__` reaches them all. 60s leaves headroom for an 8-worker box.
+_LIFESPAN_STARTUP_TIMEOUT = 60.0
+_LIFESPAN_SHUTDOWN_TIMEOUT = 30.0
+_lifespan_init = asgi_lifespan.LifespanManager.__init__
+
+
+def _patient_lifespan_init(self, app, startup_timeout=_LIFESPAN_STARTUP_TIMEOUT,
+                           shutdown_timeout=_LIFESPAN_SHUTDOWN_TIMEOUT):
+    _lifespan_init(self, app, startup_timeout=startup_timeout, shutdown_timeout=shutdown_timeout)
+
+
+asgi_lifespan.LifespanManager.__init__ = _patient_lifespan_init
 
 # `openbot.main` calls load_dotenv() (it is how LANGSMITH_* reach the langsmith SDK), so importing
 # it for these tests copies a developer's repo-root .env into os.environ. pydantic-settings reads

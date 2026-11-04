@@ -46,7 +46,7 @@ github-release: ## build macOS + Linux apps from HEAD and publish them as the ne
 electron-package: electron-release
 
 test:           ## run backend and frontend test suites (live provider smoke tests excluded)
-	cd backend && uv run pytest -q
+	cd backend && uv run pytest -q -n auto --dist loadfile
 	cd frontend && pnpm test && pnpm typecheck
 
 smoke:          ## run the live provider smoke tests -- these call real APIs and cost money
