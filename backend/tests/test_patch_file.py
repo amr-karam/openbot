@@ -13,7 +13,6 @@ from pathlib import Path
 from unittest.mock import patch as mock_patch
 
 import pytest
-
 from langchain.tools import ToolRuntime
 
 from openbot.tools.builtin.files import _apply_patch_command, patch_file

@@ -1,9 +1,9 @@
 import os
 from pathlib import Path
 
+import asgi_lifespan
 import pytest
 import pytest_asyncio
-import asgi_lifespan
 from asgi_lifespan import LifespanManager
 from httpx import ASGITransport, AsyncClient
 from langgraph.checkpoint.memory import InMemorySaver
