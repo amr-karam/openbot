@@ -45,8 +45,12 @@ github-release: ## build macOS + Linux apps from HEAD and publish them as the ne
 # Backward-compatible name retained for existing packaging workflows.
 electron-package: electron-release
 
+# `test` caps at 4 workers, not `-n auto`: the suite is memory-bound, not CPU-bound. Each worker
+# holds the openbot.main import stack, and at 8 workers some hit ERROR_OUTOFMEMORY creating test
+# subprocesses, seen as a missing child.pid in the run_shell process-group tests. -n 4 is green
+# and no slower here (~181s vs ~178s).
 test:           ## run backend and frontend test suites (live provider smoke tests excluded)
-	cd backend && uv run pytest -q -n auto --dist loadfile
+	cd backend && uv run pytest -q -n 4 --dist loadfile
 	cd frontend && pnpm test && pnpm typecheck
 
 smoke:          ## run the live provider smoke tests -- these call real APIs and cost money
